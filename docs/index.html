@@ -9,12 +9,15 @@
 
         <style>
             :root {
-                --max-main-width: 960px;
+                --default-border: 1px;
+                --max-main-width: calc(900px - calc(var(--default-border) * 2));
                 --min-main-width: calc(var(--max-main-width) / 2);
-                --default-border: 3px;
             }
 
             body {
+                margin: 0;
+                padding: 0;
+
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -32,8 +35,8 @@
             }
 
             section {
-                width: calc(var(--min-main-width) - calc(var(--default-border)*2));
-                min-width: calc(var(--min-main-width) - calc(var(--default-border)*2));
+                width: calc(var(--min-main-width) - calc(var(--default-border)*4));
+                min-width: calc(var(--min-main-width) - calc(var(--default-border)*4));
                 aspect-ratio: 3/4;
 
                 display: grid;
@@ -50,7 +53,6 @@
             .grid-row {
                 background-color: lightcyan;
                 border: var(--default-border) red solid;
-                margin: 5px;
             }
         </style>
     </head>
