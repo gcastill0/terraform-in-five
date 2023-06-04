@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+            :root {
+                --max-main-width: 900px;
+                --min-main-width: calc(var(--max-main-width) / 2);
+                --default-border: 3px;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+            }
+
+            main {
+                border: var(--default-border) lightblue solid;
+                max-width: var(--max-main-width);
+                min-width: var(--min-main-width);
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+            }
+
+            section {
+                width: calc(var(--min-main-width) - calc(var(--default-border)*2));
+                min-width: calc(var(--min-main-width) - calc(var(--default-border)*2));
+                aspect-ratio: 3/4;
+
+                display: grid;
+                grid-template-rows: 1fr 2fr 1fr;
+
+                /* Delete these after work*/
+                border: var(--default-border) white solid;
+            }
+
+            section[is-visible="false"] {
+                display: none;
+            }
+
+            .grid-row {
+                background-color: lightcyan;
+                border: var(--default-border) red solid;
+                margin: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <main>
+            <section is-visible="true">
+                <div class="grid-row">1</div>
+                <div class="grid-row">2</div>
+                <div class="grid-row">3</div>
+            </section>
+            <section is-visible="true">
+                <div class="grid-row">1</div>
+                <div class="grid-row">2</div>
+                <div class="grid-row">3</div>
+            </section>
+            <section is-visible="false">
+                <div class="grid-row">1</div>
+                <div class="grid-row">2</div>
+                <div class="grid-row">3</div>
+            </section>
+            <section is-visible="false">
+                <div class="grid-row">1</div>
+                <div class="grid-row">2</div>
+                <div class="grid-row">3</div>
+            </section>
+            <section is-visible="false">
+                <div class="grid-row">1</div>
+                <div class="grid-row">2</div>
+                <div class="grid-row">3</div>
+            </section>
+            <section is-visible="false">
+                <div class="grid-row">1</div>
+                <div class="grid-row">2</div>
+                <div class="grid-row">3</div>
+            </section>
+        </main>
+
+        <script>
+            console.log(window.innerWidth);
+        </script>
+
+    </body>
+
+</html>
