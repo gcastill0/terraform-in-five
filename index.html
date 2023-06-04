@@ -9,9 +9,9 @@
 
         <style>
             :root {
-                --max-main-width: 900px;
+                --default-border: 1px;
+                --max-main-width: calc(900px - calc(var(--default-border) * 2));
                 --min-main-width: calc(var(--max-main-width) / 2);
-                --default-border: 3px;
             }
 
             body {
@@ -53,7 +53,6 @@
             .grid-row {
                 background-color: lightcyan;
                 border: var(--default-border) red solid;
-                margin: 5px;
             }
         </style>
     </head>
