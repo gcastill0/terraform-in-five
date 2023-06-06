@@ -7,6 +7,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Terraform in five</title>
 
+        <script src="js/typewriter.js" defer></script>
+        <script src="js/main.js" defer></script>
+
         <style>
             :root {
                 --default-border: 1px;
@@ -277,9 +280,7 @@
                         <p>
                             <strong>Refresh-only mode</strong>: creates a plan only to update the Terraform state and
                             root
-                            module output values to match changes made to remote objects outside of Terraform. This can
-                            be
-                            useful if you've intentionally changed one or more remote objects outside of the usual
+                            module output values to match changes made to remote objects outside of Terraform. This is useful for changes outside of the usual
                             workflows.
                         </p>
                     </div>
@@ -301,15 +302,17 @@
                         </div>
                         <div class="response" id="response">
                             <pre><code class="json" id="step02">
-                                    <!-- An execution plan has been generated and is shown below.
-                                    Terraform will perform the following actions:
-                                    # aws_vpc.main will be created
-                                    + resource "aws_vpc" "main" {
-                                    + arn = (known after apply)
-                                    + cidr_block = "10.0.0.0/16"
-                                    ...
-                                    + instance_tenancy = "dedicated"
-                                    } -->
+An execution plan has been generated 
+and is shown below. Terraform will 
+perform the following actions:
+
+# aws_vpc.main will be created
++ resource "aws_vpc" "main" {
+  + arn = (known after apply)
+  + cidr_block = "10.0.0.0/16"
+  ...
+  + instance_tenancy = "dedicated"
+}
                                 </code></pre>
                         </div>
                     </div>
@@ -339,7 +342,28 @@
         </main>
 
         <script>
-            console.log(window.innerWidth);
+            let console_display = {};
+
+            document.querySelectorAll(".bash").forEach((item) => {
+                console_display[item.id] = item.innerHTML;
+                item.innerHTML = "";
+            });
+
+            document.querySelectorAll(".json").forEach((item) => {
+                console_display[item.id] = item.innerHTML;
+                item.innerHTML = "";
+            });
+
+            const term_console = document.querySelector(".play")
+            term_console.addEventListener("click", () => {
+
+                playStage("step01", "step02");
+
+                // const interactive_diagram = document.getElementById("interactive-diagram")
+                // interactive_diagram.style.animation = "fadeIn 1s linear 4s normal forwards"
+            })
+
+
         </script>
 
     </body>
