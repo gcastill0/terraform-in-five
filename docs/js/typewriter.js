@@ -41,9 +41,6 @@ async function typingEffect(element, text, speed) {
   }, speed)
 }
 
-// let command_txt   = command_e.innerHTML.replace(/([\n\r])/g, "~").replace(/\s{2,}/g, " ").replace(/~/g, "\n");
-// let response_text = response_e.innerHTML.replace(/([\n\r])/g, "~").replace(/\s{2,}/g, " ").replace(/~/g, "\n");
-
 function playStage(command_id, response_id) {
   let command = document.querySelector("#" + command_id);
   let response = document.querySelector("#" + response_id);
@@ -51,8 +48,8 @@ function playStage(command_id, response_id) {
   command.innerHTML = "";
   response.innerHTML = "";
 
-  let command_text = console_display[command_id];
-  let response_text = console_display[response_id];
+  let command_text = String(console_display[command_id]).replace(/(\s{2,})/g, " ");
+  let response_text = String(console_display[response_id]).replace(/([\n\r])/g, "NL").replace(/(\s{2,})/g, " ").replace(/NL/g, "\n");
 
   let delay = command_text.length * 20 + 500;
 
