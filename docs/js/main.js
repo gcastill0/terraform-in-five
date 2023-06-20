@@ -120,18 +120,18 @@ window.onload = function () {
         let command_text = console_display[command_id]
         let response_text = console_display[response_id]
 
-        let delay = command_text.length * 100 + 1000;
+        const delay = 50;
 
         function playCommand() {
-            typingEffect(command, command_text, 50);
+            typingEffect(command, command_text, delay);
         }
 
         function playResponse() {
-            typingEffect(response, response_text, 2);
+            typingEffect(response, response_text, delay / 5);
         }
 
-        setTimeout(playCommand, 500);
-        setTimeout(playResponse, delay);
+        setTimeout(playCommand, 200);
+        setTimeout(playResponse, command_text.length * delay);
     }
 
     // fetchSVG("plan_description.svg").then(svgDoc => {
