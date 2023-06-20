@@ -77,7 +77,9 @@
                 width: 350px;
                 aspect-ratio: 9/16;
                 background-color: white;
-                box-shadow: 0px 2px 4px #DBDBDC;
+                /* box-shadow: 1px 2px 4px rgba(247, 157, 13, 0.4); */
+                /* box-shadow: 0px 2px 4px #DBDBDC; */
+                box-shadow: 0px 2px 4px rgba(247, 157, 13, 0.4);
                 animation: moveDownInitial 10ms ease-in-out 500ms normal forwards;
             }
 
@@ -271,10 +273,10 @@
                 z-index: 100;
                 top: calc(50% - 50px);
                 left: calc(50% - 50px);
-                background-image: url("./icon_play.svg");
-                background-repeat: no-repeat;
+                background-image: url("icon_play.svg");
+                /* background-repeat: no-repeat;
                 background-attachment: fixed;
-                background-position: center;
+                background-position: center; */
             }
 
             .hud-play-button::before {
@@ -286,7 +288,7 @@
                 z-index: 101;
                 top: calc(50% - 50px);
                 left: calc(50% - 50px);
-                /* box-shadow: inset 0px 0px 4px rgba(247, 157, 13, 0.5); */
+                box-shadow: inset 0px 0px 4px rgba(247, 157, 13, 0.5);
                 border-radius: 50%;
                 background-color: rgba(247, 157, 13, 0.1);
             }
@@ -390,6 +392,7 @@
                 min-height: 100px;
                 display: flex;
                 align-items: flex-end;
+                padding-bottom: 20px;
             }
 
             .bash {
@@ -401,7 +404,7 @@
 
             .json {
                 position: absolute;
-                left: 1.5rem;
+                left: 1rem;
                 color: #62d4dc;
                 z-index: 200;
             }
