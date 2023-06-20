@@ -117,14 +117,17 @@ window.onload = function () {
         let command_text = String(console_display[command_id]).replace(/(\s{2,})/g, " ");
         let response_text = String(console_display[response_id]).replace(/([\n\r])/g, "NL").replace(/(\s{2,})/g, " ").replace(/NL/g, "\n");
 
-        let delay = command_text.length * 20 + 500;
+        let delay = command_text.length * 100 + 1000;
 
-        typingEffect(command, command_text, 50);
-
-        function playResponse() {
-            typingEffect(response, response_text, 0);
+        function playCommand() {
+            typingEffect(command, command_text, 50);
         }
 
+        function playResponse() {
+            typingEffect(response, response_text, 2);
+        }
+
+        setTimeout(playCommand, 500);
         setTimeout(playResponse, delay);
     }
 

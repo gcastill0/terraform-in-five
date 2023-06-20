@@ -252,7 +252,7 @@
 
  .hud-terminal[active="true"]::before,
  .hud-terminal[active="true"]::after {
-     animation: shrinkHeight 200ms linear normal forwards;
+     animation: shrinkHeight 300ms linear normal forwards;
  }
 
  .hud-play-button {
@@ -298,11 +298,12 @@
 
  .hud-play-button:hover::before,
  .hud-play-button:hover::after {
-     animation: fadeLow 200ms linear normal forwards;
+     animation: fadeLow 500ms linear normal forwards;
+     cursor: pointer;
  }
 
  .hud-play-button[active="false"] {
-     animation: fadeOut 200ms linear normal forwards;
+     animation: fadeOut 500ms linear normal forwards;
  }
 
  @keyframes shrinkHeight {
