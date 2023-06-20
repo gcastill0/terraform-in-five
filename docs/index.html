@@ -47,7 +47,7 @@
                     <div class="card-overview-text invisible">
                         <p>
                             <strong>Destroy mode</strong>: creates a plan to destroy all remote objects that currently
-                            exist, leaving an empty Terraform state. Destroy mode can be useful for situations like
+                            exist. Destroy mode can be useful for situations like
                             transient
                             development environments, where the managed objects cease to be useful once the development
                             task is complete.
@@ -75,19 +75,30 @@
                     </div>
                     <div class="response" id="response">
                         <pre><code class="json" id="step02">
-                                An execution plan has been generated
-                                and is shown below. Terraform will
-                                perform the following actions:
+Terraform used the selected providers 
+to generate the following execution 
+plan. Resource actions are indicated 
+with the following symbols:
+  + create
 
-                                # aws_vpc.main will be created
-                                + resource "aws_vpc" "main" {
-                                + arn = (known after apply)
-                                + cidr_block = "10.0.0.0/16"
+Terraform will perform the following 
+actions:
 
-                                ...
+# aws_vpc.main will be created
++ resource "aws_vpc" "main" {
+  + arn              = (known after apply)
+  + cidr_block       = "10.0.0.0/16"
+  + id               = (known after apply)
+  + instance_tenancy = "dedicated"
+  + ipv6_cidr_block  = (known after apply)
+  + owner_id         = (known after apply)
+  + tags             = {
+      + "name" = "aws-vpc-us-east-1"
+    }
+  }
 
-                                + instance_tenancy = "dedicated"
-                                }
+Plan: 1 to add, 0 to change, 
+0 to destroy.
                             </code></pre>
                     </div>
                 </div>

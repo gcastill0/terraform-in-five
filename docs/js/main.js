@@ -114,8 +114,11 @@ window.onload = function () {
         command.innerHTML = "";
         response.innerHTML = "";
 
-        let command_text = String(console_display[command_id]).replace(/(\s{2,})/g, " ");
-        let response_text = String(console_display[response_id]).replace(/([\n\r])/g, "NL").replace(/(\s{2,})/g, " ").replace(/NL/g, "\n");
+        // let command_text = String(console_display[command_id]).replace(/(\s{2,})/g, " ");
+        // let response_text = String(console_display[response_id]).replace(/([\n\r])/g, "NL").replace(/(\s{2,})/g, " ").replace(/NL/g, "\n");
+
+        let command_text = console_display[command_id]
+        let response_text = console_display[response_id]
 
         let delay = command_text.length * 100 + 1000;
 
