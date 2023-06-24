@@ -1,80 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terraform in five</title>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Terraform in five</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main.js" defer></script>
+  </head>
 
-        <link rel="stylesheet" href="css/styles.css">
-        <script src="js/main.js" defer></script>
+  <body>
+    <main>
+      <section is-visible="true">
+        <div class="card-wrapper">
+          <div class="card-header">
+            <p>Manage Infrastructure</p>
+          </div>
+          <div class="card-command">
+            <img src="img/terminal.svg" />
+            &nbsp; terraform plan
+          </div>
+          <div class="card-menu">
+            <div class="menu-item active">Overview</div>
+            <div class="menu-item not-active">Options</div>
+          </div>
+          <div class="card-overview-text visible">
+            <p>
+              The <span class="code">terraform plan</span> command creates an
+              execution plan, which lets you preview the changes that Terraform
+              can apply to your infrastructure.
+            </p>
 
-    </head>
+            <p>
+              The plan command alone does not actually carry out the proposed
+              changes. You can use this command to check whether the proposed
+              changes match what you expect before you apply the changes or
+              share the changes with your team for broader review.
+            </p>
+          </div>
+          <div class="card-overview-text invisible">
+            <p>
+              <strong>Destroy mode</strong>: creates a plan to destroy all
+              remote objects that currently exist. Destroy mode can be useful
+              for situations like transient development environments, where the
+              managed objects cease to be useful once the development task is
+              complete.
+            </p>
 
-    <body>
+            <p>
+              <strong>Refresh-only mode</strong>: creates a plan only to update
+              the Terraform state and root module output values to match changes
+              made to remote objects outside of Terraform. This is useful for
+              changes outside of the usual workflows.
+            </p>
+          </div>
+        </div>
+      </section>
 
-        <main>
-            <section is-visible="true">
-                <div class="card-wrapper">
-                    <div class="card-header">
-                        <p>Manage Infrastructure</p>
-                    </div>
-                    <div class="card-command">
-                        <img src="img/terminal.svg" />
-                        &nbsp;
-                        terraform plan
-                    </div>
-                    <div class="card-menu">
-                        <div class="menu-item active">Overview</div>
-                        <div class="menu-item not-active">Options</div>
-                    </div>
-                    <div class="card-overview-text visible">
-                        <p>
-                            The <span class="code">terraform plan</span> command creates an execution plan, which lets
-                            you
-                            preview the changes that Terraform can apply to your infrastructure.
-                        </p>
-
-                        <p>
-                            The plan command alone does not actually carry out the proposed changes. You can use this
-                            command to
-                            check whether the proposed changes match what you expect before you apply the changes or
-                            share
-                            the changes with your team for broader review.
-                        </p>
-                    </div>
-                    <div class="card-overview-text invisible">
-                        <p>
-                            <strong>Destroy mode</strong>: creates a plan to destroy all remote objects that currently
-                            exist. Destroy mode can be useful for situations like
-                            transient
-                            development environments, where the managed objects cease to be useful once the development
-                            task is complete.
-                        </p>
-
-                        <p>
-                            <strong>Refresh-only mode</strong>: creates a plan only to update the Terraform state and
-                            root
-                            module output values to match changes made to remote objects outside of Terraform. This is
-                            useful for changes outside of the usual
-                            workflows.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section is-visible="true">
-                <div class="hud-play-button" id="hud-play-button">
-                </div>
-                <div class="hud-terminal" id="hud-terminal">
-                    <div class="command" id="command">
-                        <pre><code class="bash" id="step01">
+      <section is-visible="true">
+        <div class="hud-play-button" id="hud-play-button">
+          <?xml version="1.0" encoding="UTF-8"?>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="100"
+            height="100"
+            id="play-icon"
+          >
+            <path
+              d="m39.06 26.912 34.226 21.392a2 2 0 0 1 0 3.392L39.06 73.088A2 2 0 0 1 36 71.392V28.608a2 2 0 0 1 3.06-1.696Z"
+            />
+          </svg>
+        </div>
+        <div class="hud-terminal" id="hud-terminal">
+          <div class="command" id="command">
+            <pre><code class="bash" id="step01">
                                 terraform plan
                             </code></pre>
-                    </div>
-                    <div class="response" id="response">
-                        <pre><code class="json" id="step02">
+          </div>
+          <div class="response" id="response">
+            <pre><code class="json" id="step02">
 Terraform used the selected providers 
 to generate the following execution 
 plan. Resource actions are indicated 
@@ -99,13 +104,13 @@ actions:
 
 Plan: 1 to add, 0 to change, 0 to destroy.
                             </code></pre>
-                    </div>
-                </div>
-            </section>
+          </div>
+        </div>
+      </section>
+    </main>
 
-
-        </main>
-
-    </body>
-
+    <script>
+      const play_icon = document.querySelector("#play-icon path");
+    </script>
+  </body>
 </html>

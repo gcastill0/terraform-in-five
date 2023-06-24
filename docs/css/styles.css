@@ -2,6 +2,9 @@
      --default-border: 1px;
      --max-main-width: calc(790px - calc(var(--default-border) * 2));
      --min-main-width: calc(var(--max-main-width) / 2);
+    --play-icon-stroke: #CCC;
+        --play-icon-fill: #CCC;
+        --play-icon-length: 136;
  }
 
  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
@@ -268,7 +271,7 @@
      z-index: 102;
      top: calc(50% - 50px);
      left: calc(50% - 50px);
-     background-image: url("../img/icon_play.svg");
+    /* background-image: url("../img/icon_play.svg"); */
      /* background-repeat: no-repeat;
      background-attachment: fixed;
      background-position: center; */
@@ -295,7 +298,7 @@
      position: absolute;
      width: 80px;
      height: 80px;
-     z-index: 100;
+    z-index: 200;
      top: calc(50% - 40px);
      left: calc(50% - 40px);
      box-shadow: inset 0px 0px 4px rgba(247, 157, 13, 0.2);
@@ -306,7 +309,7 @@
 
  .hud-play-button:hover::before,
  .hud-play-button:hover::after {
-     animation: fadeLow 500ms linear normal forwards;
+    animation: fadeLow 500ms linear normal forwards, hover-play-icon 500ms ease-in forwards;
      cursor: pointer;
  }
 
@@ -314,6 +317,38 @@
      animation: fadeOut 500ms linear normal forwards;
  }
 
+#play-icon {
+    stroke: var(--play-icon-stroke);
+    /* fill: var(--play-icon-fill); */
+    stroke-width: 2;
+    /* stroke-dasharray: var(--play-icon-length); */
+    /* stroke-dashoffset: var(--play-icon-length); */
+    animation: hover-play-icon 5s ease-in infinite;
+}
+
+@keyframes hover-play-icon {
+    0% {
+        /* stroke-dasharray: 0.5; */
+        fill: rgba(255, 255, 255, 1);
+        /* fill: #CCC; */
+    }
+
+    50% {
+        /* stroke-dasharray: 0; */
+        fill: rgba(255, 255, 255, 0.8);
+        fill: rgba(247, 157, 13, 0.2);
+    }
+
+    75% {
+        /* stroke-dasharray: 0; */
+        fill: rgba(255, 255, 255, 0.8);
+    }
+
+    100% {
+        /* stroke-dasharray: 0.5; */
+        fill: rgba(255, 255, 255, 1);
+    }
+}
  @keyframes shrinkHeight {
      0% {
          height: 350px;
