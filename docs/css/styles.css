@@ -167,52 +167,6 @@
      display: none;
  }
 
- .console {
-     width: 350px;
-     height: 90%;
-     display: flex;
-     align-content: center;
-     flex-direction: column;
-     border-radius: 10px;
-     background-image:
-         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cg fill='%222' fill-opacity='0.1'%3E%3Cpath fill-rule='evenodd' d='M0 0h5v5H0V0zm5 5h5v5H5V5z'/%3E%3C/g%3E%3C/svg%3E"),
-         linear-gradient(to right, #1d1e1f, #343536);
-     position: relative;
-     box-shadow: 0px 2px 4px #DBDBDC;
- }
-
- .terminal {
-     display: flex;
-     flex-direction: column;
-     height: 300px;
- }
-
- .terminal::-webkit-scrollbar {
-     width: 10px;
-     height: 10px;
- }
-
- .terminal::-webkit-scrollbar-thumb {
-     background: #201c29;
-     border-radius: 10px;
-     box-shadow: 0px 2px 4px #DBDBDC;
- }
-
- .terminal-decorator {
-     display: flex;
-     align-items: center;
-     justify-content: flex-end;
-     height: 40px;
-     background-image:
-         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cg fill='%222' fill-opacity='0.3'%3E%3Cpath fill-rule='evenodd' d='M0 0h5v5H0V0zm5 5h5v5H5V5z'/%3E%3C/g%3E%3C/svg%3E"),
-         linear-gradient(to right, #1d1e1f, #343536);
-     border-top-left-radius: 10px;
-     border-top-right-radius: 10px;
-     /* border-top: 2rem solid var(--dark_accent); */
-     /* border-bottom: 2rem solid var(--dark_accent); */
-     border-bottom: 1px solid #fbfaf5;
- }
-
  .play {
      font-size: 24px;
      color: rgba(255, 255, 255);
@@ -227,7 +181,6 @@
      margin-right: 16px;
  }
 
-
  .hud-terminal {
      width: 350px;
      aspect-ratio: 9/16;
@@ -238,10 +191,10 @@
      position: relative;
 
      /* background-color: #11111195;
-     border-radius: 10px;
+     border-radius: 10px; */
      background-image:
-         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23222222' fill-opacity='0.75' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"),
-         linear-gradient(to right, #121131, #01020a); */
+         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%755' fill-opacity='0.1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"),
+         linear-gradient(to bottom, white, #eeeeee, #ffffff);
 
      box-shadow: 20px 20px 60px #a8a8a8,
          -20px -20px 60px #ffffff;
@@ -280,16 +233,17 @@
      bottom: 0;
  }
 
- .hud-terminal[active="true"] {
-     box-shadow: inset 0px 0px 4px #e0e0e0;
- }
-
  .hud-terminal[active="true"]::before,
  .hud-terminal[active="true"]::after {
      animation: shrinkHeight 300ms linear normal forwards;
  }
 
+ .hud-terminal[active="true"]::before {
+     box-shadow: inset -0px -4px 5px #e0e0e0;
+ }
+
  .hud-terminal[active="true"]::after {
+     box-shadow: inset -0px 4px 5px white;
      bottom: 0;
  }
 
