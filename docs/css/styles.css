@@ -42,7 +42,8 @@
  section {
      width: calc(var(--min-main-width) - calc(var(--default-border)*4));
      max-width: calc(var(--min-main-width) - calc(var(--default-border)*4));
-     aspect-ratio: 9/16;
+     height: 740px;
+     /* aspect-ratio: 9/16; */
 
      display: flex;
      align-items: center;
