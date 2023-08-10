@@ -8,8 +8,13 @@
         <title>Terraform in five</title>
 
         <link rel="stylesheet" href="css/styles.css" />
+
+        <script src="js/anime.min.js"></script>
+
+
         <script src="js/main.js" defer></script>
         <script src="js/slider.js" defer></script>
+        <script src="js/animations.js" defer></script>
     </head>
 
     <body>
@@ -89,8 +94,54 @@
 
             <section is-visible="false">
                 <div class="card-wrapper">
-                    <div class="card-header">
+                    <div class="card-header" id="animation-card-header">
                         <p>Resource Declaration</p>
+                    </div>
+                    <div class="card-animated-area" id="card-animated-area-1">
+                        <div class="section-one">
+                            <div class="animation-header" is-hidden="true">
+                                <p>Current State</p>
+                            </div>
+
+                            <div class="animated-iac-section">
+                                <h1>A</h1>
+                            </div>
+
+                            <div class="animated-iac-section">
+                                <h1>B</h1>
+                            </div>
+
+
+                            <div class="animated-iac-section is-desired">
+                                <h1>C</h1>
+                            </div>
+
+                            <div class="animated-iac-section is-desired">
+                                <h1>D</h1>
+                            </div>
+                            <div class="animated-iac-section">
+                                <h1>E</h1>
+                            </div>
+
+                            <div class="animation-header" is-hidden="true">
+                                <p>Desired State</p>
+                            </div>
+
+
+                            <div class="animated-iac-section" is-hidden="true">
+                                <h1>A</h1>
+                            </div>
+
+                            <div class="animated-iac-section" is-hidden="true">
+                                <h1>B</h1>
+                            </div>
+
+                            <div class="animated-iac-section" is-hidden="true">
+                                <h1>E</h1>
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
             </section>
