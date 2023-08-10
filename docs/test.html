@@ -8,32 +8,57 @@
 
         <link rel="stylesheet" href="css/styles.css" />
         <script src="js/slider.js" defer></script>
+        <script src="js/anime.min.js"></script>
 
         <style>
-            section {
-                border: dotted #222 1px;
+            .card-animated-area {
+                height: calc(90% - 90px);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
             }
 
-            .dots_container {
-                width: 200px;
-                height: 50px;
+            .card-animated-area:hover {
+                cursor: pointer;
+            }
+
+            .section-one,
+            .section-two {
                 display: flex;
+                flex-direction: column;
                 justify-content: space-evenly;
                 align-items: center;
+                height: 100%;
+                width: 300px;
+                /* border: dotted #222 1px; */
             }
 
-            .dot {
-                width: 15px;
-                height: 15px;
-                border-radius: 50%;
+            .animated-iac-section {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 150px;
+                height: 50px;
+                background-color: #343536;
+                box-shadow: inset 1px 1px 3px #e0e0e0, 3px 3px 5px #a8a8a8;
+                border-radius: 10px;
+                font-weight: 400;
+                color: white;
             }
 
-            .dot[is-active="true"] {
-                background-color: #222;
+            .is-desired {
+                background-color: #e0e0e0;
+                color: #343536;
+                box-shadow: inset -2px -2px 5px #FFF, inset 2px 2px 5px #a8a8a8, 1px 1px 5px #a8a8a8;
             }
 
-            .dot[is-active="false"] {
-                background-color: #999;
+            .animated-iac-section[is-hidden="true"] {
+                opacity: 0.0;
+            }
+
+            .animation-header[is-hidden="true"] {
+                opacity: 0.0;
             }
         </style>
 
@@ -45,11 +70,90 @@
         <main>
 
             <section is-visible="false">
-                <h1>1</h1>
+                <div class="card-wrapper">
+                    <div class="card-header" id="animation-card-header">
+                        <p>Resource Declaration</p>
+                    </div>
+                    <div class="card-animated-area" id="card-animated-area-1">
+                        <div class="section-one">
+                            <div class="animation-header" is-hidden="true">
+                                <p>Current State</p>
+                            </div>
+
+                            <div class="animated-iac-section">
+                                <h1>A</h1>
+                            </div>
+
+                            <div class="animated-iac-section">
+                                <h1>B</h1>
+                            </div>
+
+                            <div class="animated-iac-section is-desired">
+                                <h1>C</h1>
+                            </div>
+
+                            <div class="animated-iac-section is-desired">
+                                <h1>D</h1>
+                            </div>
+                            <div class="animated-iac-section">
+                                <h1>E</h1>
+                            </div>
+
+                            <div class="animation-header" is-hidden="true">
+                                <p>Desired State</p>
+                            </div>
+
+                            <div class="animated-iac-section" is-hidden="true">
+                                <h1>A</h1>
+                            </div>
+
+                            <div class="animated-iac-section" is-hidden="true">
+                                <h1>B</h1>
+                            </div>
+
+                            <div class="animated-iac-section" is-hidden="true">
+                                <h1>E</h1>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
             </section>
+
             <section is-visible="false">
-                <h1>2</h1>
+                <div class="card-wrapper">
+                    <div class="card-header" id="animation-card-header">
+                        <p>Dependency Graph</p>
+                    </div>
+                    <div class="card-animated-area" id="card-animated-area-2">
+                        <div class="section-two">
+
+                            <div class="animated-iac-section">
+                                <h1>A</h1>
+                            </div>
+
+                            <div class="animated-iac-section">
+                                <h1>B</h1>
+                            </div>
+
+                            <div class="animated-iac-section is-desired">
+                                <h1>C</h1>
+                            </div>
+
+                            <div class="animated-iac-section is-desired">
+                                <h1>D</h1>
+                            </div>
+                            <div class="animated-iac-section">
+                                <h1>E</h1>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
             </section>
+
             <section is-visible="false">
                 <h1>3</h1>
             </section>
@@ -64,6 +168,88 @@
 
         <div class="dots_container" id="dots_container">
         </div>
+
+        <script>
+
+            const animated_area_1 = document.getElementById('card-animated-area-1')
+            const animated_elements = document.querySelectorAll('.section-one .animated-iac-section')
+            const hidden_elements = document.querySelectorAll('[is-hidden="true"]')
+            const section_one = document.querySelector('.section-one')
+            const section_two = document.querySelector('.section-two')
+            const animated_card_header = document.getElementById('animation-card-header')
+            var animation_running = false
+
+            animated_area_1.addEventListener('click', () => {
+
+                if (animation_running) {
+                    return;
+                }
+
+                animation_running = true
+
+                var animation = anime.timeline({
+                    easing: 'easeOutExpo',
+                    duration: 5000
+                });
+
+                animation
+                    .add({
+                        targets: animated_elements,
+                        // borderRadius: ['11px', '50%'],
+                        width: ['150px', '75px'],
+                        // height: ['50px', '75px'],
+                        easing: 'easeInOutQuad',
+                        duration: 1000
+                    })
+                    .add({
+                        targets: [animated_elements[0], animated_elements[1], animated_elements[4]],
+                        translateY: function (el, i) {
+                            if (i > 1) {
+                                return (section_one.getBoundingClientRect().y + 150 - el.getBoundingClientRect().y)
+                            }
+                            return (section_one.getBoundingClientRect().y + 50 - el.getBoundingClientRect().y)
+                        },
+                        translateX: function (el, i) {
+                            if (i == 2) {
+                                return (section_one.getBoundingClientRect().x + 14 + ((2) * 100) - el.getBoundingClientRect().x)
+                            }
+                            return (section_one.getBoundingClientRect().x + 14 + ((i % 2) * 100) - el.getBoundingClientRect().x)
+                        },
+                        easing: 'easeInOutQuad',
+                        delay: 500,
+                        duration: 1000
+                    })
+                    .add({
+                        targets: [animated_elements[5], animated_elements[6], animated_elements[2], animated_elements[3], animated_elements[7]],
+                        translateY: function (el, i) {
+                            if (i > 1) {
+                                return (section_one.getBoundingClientRect().y + 475 - el.getBoundingClientRect().y)
+                            }
+                            return (section_one.getBoundingClientRect().y + 375 - el.getBoundingClientRect().y)
+                        },
+                        translateX: function (el, i) {
+                            if (i == 4) {
+                                return (section_one.getBoundingClientRect().x + 14 + ((2) * 100) - el.getBoundingClientRect().x)
+                            }
+                            return (section_one.getBoundingClientRect().x + 14 + ((i % 2) * 100) - el.getBoundingClientRect().x)
+                        },
+                        easing: 'easeInOutQuad',
+                        opacity: ["1"],
+                        delay: 5000,
+                        duration: 1000,
+                    })
+                    .add({
+                        targets: hidden_elements,
+                        delay: 1000,
+                        duration: 1000,
+                        update: function () {
+                            animated_card_header.innerHTML = `<p>State Comparison</p>`
+                        },
+                        opacity: ["1"]
+                    })
+            })
+
+        </script>
 
     </body>
 

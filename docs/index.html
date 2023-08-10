@@ -62,38 +62,49 @@
             </section>
 
             <section is-visible="true">
-                <div class="hud-play-button" id="hud-play-button">
-                    <?xml version="1.0" encoding="UTF-8"?>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" id="play-icon">
-                        <path
-                            d="m39.06 26.912 34.226 21.392a2 2 0 0 1 0 3.392L39.06 73.088A2 2 0 0 1 36 71.392V28.608a2 2 0 0 1 3.06-1.696Z" />
-                    </svg>
-                </div>
-                <div class="hud-terminal" id="hud-terminal">
-                    <div class="command" id="command">
-                        <pre><code class="bash" id="step01">
-                                terraform plan
-                            </code></pre>
+                <div class="card-wrapper">
+                    <div class="hud-play-button" id="hud-play-button">
+                        <?xml version="1.0" encoding="UTF-8"?>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" id="play-icon">
+                            <path
+                                d="m39.06 26.912 34.226 21.392a2 2 0 0 1 0 3.392L39.06 73.088A2 2 0 0 1 36 71.392V28.608a2 2 0 0 1 3.06-1.696Z" />
+                        </svg>
                     </div>
-                    <div class="response" id="response">
-                        <pre>
-                            <code class="json" id="step02">
-                            </code>
-                        </pre>
+                    <div class="hud-terminal" id="hud-terminal">
+                        <div class="command" id="command">
+                            <pre><code class="bash" id="step01">
+                                    terraform plan
+                                </code></pre>
+                        </div>
+                        <div class="response" id="response">
+                            <pre>
+                                <code class="json" id="step02">
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section is-visible="false">
+                <div class="card-wrapper">
+                    <div class="card-header">
+                        <p>Resource Declaration</p>
                     </div>
                 </div>
             </section>
 
             <section is-visible="false">
-                <h1>3</h1>
+                <div class="card-wrapper">
+                    <h1>4</h1>
+                </div>
             </section>
 
             <section is-visible="false">
-                <h1>4</h1>
-            </section>
-
-            <section is-visible="false">
-                <h1>5</h1>
+                <div class="card-wrapper">
+                    <h1>5</h1>
+                </div>
             </section>
 
         </main>
