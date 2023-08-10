@@ -9,10 +9,12 @@
 
         <link rel="stylesheet" href="css/styles.css" />
         <script src="js/main.js" defer></script>
+        <script src="js/slider.js" defer></script>
     </head>
 
     <body>
         <main>
+
             <section is-visible="true">
                 <div class="card-wrapper">
                     <div class="card-header">
@@ -81,7 +83,23 @@
                     </div>
                 </div>
             </section>
+
+            <section is-visible="false">
+                <h1>3</h1>
+            </section>
+
+            <section is-visible="false">
+                <h1>4</h1>
+            </section>
+
+            <section is-visible="false">
+                <h1>5</h1>
+            </section>
+
         </main>
+
+        <div class="dots_container" id="dots_container">
+        </div>
 
         <script>
             const play_icon = document.querySelector("#play-icon path");

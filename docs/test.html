@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>test</title>
+
+        <link rel="stylesheet" href="css/styles.css" />
+        <script src="js/slider.js" defer></script>
+
+        <style>
+            section {
+                border: dotted #222 1px;
+            }
+
+            .dots_container {
+                width: 200px;
+                height: 50px;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+
+            .dot {
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+            }
+
+            .dot[is-active="true"] {
+                background-color: #222;
+            }
+
+            .dot[is-active="false"] {
+                background-color: #999;
+            }
+        </style>
+
+
+    </head>
+
+    <body>
+
+        <main>
+
+            <section is-visible="false">
+                <h1>1</h1>
+            </section>
+            <section is-visible="false">
+                <h1>2</h1>
+            </section>
+            <section is-visible="false">
+                <h1>3</h1>
+            </section>
+            <section is-visible="false">
+                <h1>4</h1>
+            </section>
+            <section is-visible="false">
+                <h1>5</h1>
+            </section>
+
+        </main>
+
+        <div class="dots_container" id="dots_container">
+        </div>
+
+    </body>
+
+</html>

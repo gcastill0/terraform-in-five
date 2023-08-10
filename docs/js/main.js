@@ -72,7 +72,7 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 
 window.onload = function () {
 
-    console.log(code_snippets[0]["code_snippet"])
+    // console.log(code_snippets[0]["code_snippet"])
 
     const div_target = document.getElementById(code_snippets[0]["div_id"])
     div_target.innerHTML = ''
