@@ -72,8 +72,6 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 
 window.onload = function () {
 
-    // console.log(code_snippets[0]["code_snippet"])
-
     const div_target = document.getElementById(code_snippets[0]["div_id"])
     div_target.innerHTML = ''
     div_target.innerHTML = code_snippets[0]["code_snippet"]
@@ -148,9 +146,6 @@ window.onload = function () {
 
         command.innerHTML = "";
         response.innerHTML = "";
-
-        // let command_text = String(console_display[command_id]).replace(/(\s{2,})/g, " ");
-        // let response_text = String(console_display[response_id]).replace(/([\n\r])/g, "NL").replace(/(\s{2,})/g, " ").replace(/NL/g, "\n");
 
         let command_text = console_display[command_id]
         let response_text = console_display[response_id]

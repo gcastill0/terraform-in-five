@@ -26,7 +26,7 @@ animated_area_1.addEventListener('click', () => {
             targets: animated_elements,
             // borderRadius: ['11px', '50%'],
             width: ['150px', '75px'],
-            height: ['50px', '55px'],
+            height: ['50px', '75px'],
             easing: 'easeInOutQuad',
             duration: 1000
         })
