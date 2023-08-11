@@ -27,11 +27,8 @@
             .section-two {
                 display: flex;
                 flex-direction: column;
-                justify-content: space-evenly;
                 align-items: center;
-                height: 100%;
                 width: 300px;
-                /* border: dotted #222 1px; */
             }
 
             .animated-iac-section {
@@ -76,9 +73,6 @@
                     </div>
                     <div class="card-animated-area" id="card-animated-area-1">
                         <div class="section-one">
-                            <div class="animation-header" is-hidden="true">
-                                <p>Current State</p>
-                            </div>
 
                             <div class="animated-iac-section">
                                 <h1>A</h1>
@@ -95,9 +89,16 @@
                             <div class="animated-iac-section is-desired">
                                 <h1>D</h1>
                             </div>
+
                             <div class="animated-iac-section">
                                 <h1>E</h1>
                             </div>
+
+                            <div class="animation-header" is-hidden="true">
+                                <p>Current State</p>
+                            </div>
+
+                            <div class="breaker" id="section-one-breaker" is-hidden="true"></div>
 
                             <div class="animation-header" is-hidden="true">
                                 <p>Desired State</p>
@@ -177,6 +178,7 @@
             const section_one = document.querySelector('.section-one')
             const section_two = document.querySelector('.section-two')
             const animated_card_header = document.getElementById('animation-card-header')
+            const section_one_breaker = document.getElementById('section-one-breaker')
             var animation_running = false
 
             animated_area_1.addEventListener('click', () => {
@@ -197,7 +199,7 @@
                         targets: animated_elements,
                         // borderRadius: ['11px', '50%'],
                         width: ['150px', '75px'],
-                        // height: ['50px', '75px'],
+                        height: ['50px', '75px'],
                         easing: 'easeInOutQuad',
                         duration: 1000
                     })
@@ -223,9 +225,9 @@
                         targets: [animated_elements[5], animated_elements[6], animated_elements[2], animated_elements[3], animated_elements[7]],
                         translateY: function (el, i) {
                             if (i > 1) {
-                                return (section_one.getBoundingClientRect().y + 475 - el.getBoundingClientRect().y)
+                                return (section_one.getBoundingClientRect().y + 400 - el.getBoundingClientRect().y)
                             }
-                            return (section_one.getBoundingClientRect().y + 375 - el.getBoundingClientRect().y)
+                            return (section_one.getBoundingClientRect().y + 300 - el.getBoundingClientRect().y)
                         },
                         translateX: function (el, i) {
                             if (i == 4) {
@@ -239,9 +241,13 @@
                         duration: 1000,
                     })
                     .add({
-                        targets: hidden_elements,
+                        targets: ['.animation-header', '.breaker'],
                         delay: 1000,
                         duration: 1000,
+                        translateY: -75
+                    })
+                    .add({
+                        targets: hidden_elements,
                         update: function () {
                             animated_card_header.innerHTML = `<p>State Comparison</p>`
                         },
