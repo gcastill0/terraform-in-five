@@ -28,18 +28,22 @@ animated_area_1.addEventListener('click', () => {
             width: ['150px', '75px'],
             height: ['50px', '75px'],
             easing: 'easeInOutQuad',
+            delay: 500,
             duration: 1000
         })
         .add({
-            targets: [animated_elements[0], animated_elements[1], animated_elements[4]],
+            targets: [animated_elements[0], animated_elements[1], animated_elements[2], animated_elements[3], animated_elements[4]],
             translateY: function (el, i) {
-                if (i > 1) {
+                if (i == 4) {
                     return (section_one.getBoundingClientRect().y + 150 - el.getBoundingClientRect().y)
+                }
+                if (i == 2 || i == 3) {
+                    return (section_one.getBoundingClientRect().y + 450 - el.getBoundingClientRect().y)
                 }
                 return (section_one.getBoundingClientRect().y + 50 - el.getBoundingClientRect().y)
             },
             translateX: function (el, i) {
-                if (i == 2) {
+                if (i == 4) {
                     return (section_one.getBoundingClientRect().x + 14 + ((2) * 100) - el.getBoundingClientRect().x)
                 }
                 return (section_one.getBoundingClientRect().x + 14 + ((i % 2) * 100) - el.getBoundingClientRect().x)
@@ -49,27 +53,27 @@ animated_area_1.addEventListener('click', () => {
             duration: 1000
         })
         .add({
-            targets: [animated_elements[5], animated_elements[6], animated_elements[2], animated_elements[3], animated_elements[7]],
+            targets: [animated_elements[5], animated_elements[6], animated_elements[7]],
             translateY: function (el, i) {
-                if (i > 1) {
+                if (i == 2) {
                     return (section_one.getBoundingClientRect().y + 450 - el.getBoundingClientRect().y)
                 }
                 return (section_one.getBoundingClientRect().y + 350 - el.getBoundingClientRect().y)
             },
             translateX: function (el, i) {
-                if (i == 4) {
+                if (i == 2) {
                     return (section_one.getBoundingClientRect().x + 14 + ((2) * 100) - el.getBoundingClientRect().x)
                 }
                 return (section_one.getBoundingClientRect().x + 14 + ((i % 2) * 100) - el.getBoundingClientRect().x)
             },
             easing: 'easeInOutQuad',
             opacity: ["1"],
-            delay: 5000,
+            delay: 500,
             duration: 1000,
         })
         .add({
             targets: ['.animation-header', '.breaker'],
-            delay: 1000,
+            delay: 500,
             duration: 1000,
             translateY: -75
         })
@@ -78,6 +82,8 @@ animated_area_1.addEventListener('click', () => {
             update: function () {
                 animated_card_header.innerHTML = `<p>State Comparison</p>`
             },
-            opacity: ["1"]
+            opacity: ["1"],
+            delay: 500,
+            duration: 1000,
         })
 })
