@@ -72,6 +72,7 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 
 window.onload = function () {
 
+    const play_icon = document.querySelector("#play-icon path");
     const div_target = document.getElementById(code_snippets[0]["div_id"])
     div_target.innerHTML = ''
     div_target.innerHTML = code_snippets[0]["code_snippet"]

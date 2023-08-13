@@ -11,7 +11,7 @@ var animation_running = false
 animated_area_1.addEventListener('click', () => {
 
     if (animation_running) {
-        return;
+        return
     }
 
     animation_running = true
