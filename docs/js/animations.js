@@ -28,6 +28,9 @@ animated_area_1.addEventListener('click', () => {
             width: ['150px', '75px'],
             height: ['50px', '75px'],
             easing: 'easeInOutQuad',
+            update: function () {
+                animated_card_header.innerHTML = `<p>State Comparison</p>`
+            },
             delay: 500,
             duration: 1000
         })
@@ -73,17 +76,14 @@ animated_area_1.addEventListener('click', () => {
         })
         .add({
             targets: ['.animation-header', '.breaker'],
-            delay: 500,
+            delay: 200,
             duration: 1000,
             translateY: -75
         })
         .add({
             targets: hidden_elements,
-            update: function () {
-                animated_card_header.innerHTML = `<p>State Comparison</p>`
-            },
             opacity: ["1"],
-            delay: 500,
-            duration: 1000,
+            delay: 200,
+            duration: 200,
         })
 })

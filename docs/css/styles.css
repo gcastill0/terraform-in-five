@@ -519,7 +519,7 @@
  .is-desired {
      background-color: #e0e0e0;
      color: #343536;
-     box-shadow: inset -2px -2px 5px #FFF, inset 2px 2px 5px #a8a8a8, 1px 1px 5px #a8a8a8;
+     box-shadow: inset -2px -2px 5px #a8a8a8, inset 2px 2px 5px white, 1px 1px 5px #a8a8a8;
  }
 
  .animated-iac-section[is-hidden="true"] {
@@ -540,10 +540,10 @@
  }
 
  .breaker {
-     opacity: 0;
+     opacity: 0.0;
      height: 5px;
      width: 100%;
-     border-radius: 2px;
+     border-radius: -2px;
      background-color: white;
-     box-shadow: 0px -1px 2px #a8a8a8, inset 0px 1px 2px #a8a8a8, 1px 1px 10px #a8a8a8;
+     box-shadow: inset 1px 1px 2.5px #e8e8e8, inset -1px -1px 2.5px #a8a8a8, 1px 1px 2px #a8a8a8;
  }
