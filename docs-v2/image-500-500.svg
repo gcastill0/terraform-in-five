@@ -1,18 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="500px" height="500px" viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Group</title>
-    <defs>
-        <rect id="path-1" x="0" y="0" width="500" height="500" rx="10"></rect>
-        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="500" height="500" fill="white">
-            <use xlink:href="#path-1"></use>
-        </mask>
-    </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Group">
-            <use id="Rectangle" stroke="#979797" mask="url(#mask-2)" stroke-width="2" fill="#FFFFFF" stroke-dasharray="5,5" xlink:href="#path-1"></use>
-            <text id="500-x-500" font-family="Helvetica-Bold, Helvetica" font-size="24" font-weight="bold" letter-spacing="0.35" fill="#000000">
-                <tspan x="195.540234" y="259">500 x 500</tspan>
-            </text>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500">
+<defs>
+    <rect id="a" width="500" height="500" x="0" y="0" rx="10"/>
+<mask id="b" width="500" height="500" x="0" y="0" fill="#fff" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox">
+    <use xlink:href="#a"/>
+    </mask>
+</defs><g fill="none" fill-rule="evenodd">
+        <use xlink:href="#a" fill="#FFF" stroke="#979797" stroke-dasharray="5,5" stroke-width="2" mask="url(#b)"/>
+        <text fill="#000" font-family="Helvetica-Bold, Helvetica" font-size="24" font-weight="bold" letter-spacing=".35">
+                <tspan x="195.54" y="259">500 x 500</tspan>
+            </text></g></svg>

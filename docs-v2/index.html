@@ -6,15 +6,26 @@
     <title>Terraform in Five</title>
     <style>
       :root {
-        --default-border: 1px;
         --max-height: 700px;
         --min-width: calc(var(--max-height) / 2);
-        --h1-font-size: 48px;
+        --h1-font-size: 64px;
         --h2-font-size: 36px;
         --h3-font-size: 24px;
+
+        --h1-font-weight: 700;
+        --h2-font-weight: 600;
+        --h3-font-weight: 500;
+
+        --primary-color: #394955;
+        --primary-color-alt: #137BAD;
+        --secondary-color: #9DADBC;
+        --accent-color: #DC91B9;
+        --background-color: #fafafa;
+
+        --default-border: var(--secondary-color) dotted 1px;
       }
 
-      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;600;700&display=swap");
       @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap");
 
       body {
@@ -24,6 +35,7 @@
         height: 100vh;
         font-family: "Roboto", sans-serif;
         overflow: hidden;
+        background-color: var(--background-color);
       }
       section {
         display: flex;
@@ -33,41 +45,43 @@
         /* background-color: lightcyan; */
       }
       .card {
-        border: lightgray dotted 1px;
+        border: var(--default-border);
         border-radius: 10px;
-        border: lightgray dotted 1px;
       }
       .explainer,
       .interactive {
         height: calc(var(--max-height) - 100px);
         width: 50%;
-        border: lightgray dotted 1px;
+        border: var(--default-border);
       }
       .card-title,
       .card-subtitle,
       .card-command {
         margin: 25px 50px;
-        border: lightgray dotted 1px;
+        border: var(--default-border);
         border-radius: 10px;
         display: flex;
         align-items: center;
       }
       .card-title {
+        color: var(--primary-color);
         font-size: var(--h1-font-size);
-        height: calc(var(--h1-font-size) * 2);
-        font-weight: 700;
+        height: calc(var(--h1-font-size) * 1.5);
+        font-weight: var(--h1-font-weight);
       }
       .card-subtitle {
+        color: var(--primary-color);
         font-size: var(--h2-font-size);
-        height: calc(var(--h2-font-size) * 4);
-        font-weight: 700;
+        height: calc(var(--h2-font-size) * 3);
+        font-weight: var(--h2-font-weight);
       }
       .card-bullet {
+        color: var(--primary-color);
         line-height: 2.5rem;
         margin: 25px 50px;
         font-size: var(--h3-font-size);
-        font-weight: 500;
-        border: lightgray dotted 1px;
+        font-weight: var(--h3-font-weight);
+        border: var(--default-border);
         border-radius: 10px;
       }
       .interactive {
