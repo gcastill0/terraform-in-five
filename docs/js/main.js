@@ -41,11 +41,45 @@ async function typingEffect(element, text, speed) {
     }, speed)
 }
 
+const code_snippets = [{
+    "div_id": "step02",
+    "code_snippet": `
+Terraform used the selected providers 
+to generate the following execution 
+plan. Resource actions are indicated 
+with the following symbols:
+        + create
+
+Terraform will perform the following 
+actions:
+
+# aws_vpc.main will be created
++ resource "aws_vpc" "main" {
+  + arn              = (known after apply)
+  + cidr_block       = "10.0.0.0/16"
+  + id               = (known after apply)
+  + instance_tenancy = "dedicated"
+  + ipv6_cidr_block  = (known after apply)
+  + owner_id         = (known after apply)
+  + tags             = {
+      + "name" = "aws-vpc-us-east-1"
+    }
+  }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+`
+}]
+
 window.onload = function () {
 
-    const menu_items = document.querySelectorAll('.menu-item');
-    const text_items = document.querySelectorAll('.card-overview-text');
-    const svg_diagram = document.getElementById('interactive-diagram');
+    const play_icon = document.querySelector("#play-icon path");
+    const div_target = document.getElementById(code_snippets[0]["div_id"])
+    div_target.innerHTML = ''
+    div_target.innerHTML = code_snippets[0]["code_snippet"]
+
+    const menu_items = document.querySelectorAll('.menu-item')
+    const text_items = document.querySelectorAll('.card-overview-text')
+    const svg_diagram = document.getElementById('interactive-diagram')
 
     menu_items.forEach(menu_item => {
         menu_item.addEventListener('click', (e) => {
@@ -113,9 +147,6 @@ window.onload = function () {
 
         command.innerHTML = "";
         response.innerHTML = "";
-
-        // let command_text = String(console_display[command_id]).replace(/(\s{2,})/g, " ");
-        // let response_text = String(console_display[response_id]).replace(/([\n\r])/g, "NL").replace(/(\s{2,})/g, " ").replace(/NL/g, "\n");
 
         let command_text = console_display[command_id]
         let response_text = console_display[response_id]

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>test</title>
+
+        <link rel="stylesheet" href="css/styles.css" />
+        <script src="js/slider.js" defer></script>
+        <script src="js/anime.min.js"></script>
+
+    </head>
+
+    <body>
+
+        <main>
+
+            <section is-visible="false">
+                <div class="card-wrapper">
+                    <div class="card-header" id="animation-card-header">
+                        <p>Resource Declaration</p>
+                    </div>
+                    <div class="card-animated-area" id="card-animated-area-1">
+                        <div class="section-one">
+
+                            <div class="animated-iac-section">
+                                <h1>A</h1>
+                            </div>
+
+                            <div class="animated-iac-section">
+                                <h1>B</h1>
+                            </div>
+
+                            <div class="animated-iac-section is-desired">
+                                <h1>C</h1>
+                            </div>
+
+                            <div class="animated-iac-section is-desired">
+                                <h1>D</h1>
+                            </div>
+
+                            <div class="animated-iac-section">
+                                <h1>E</h1>
+                            </div>
+
+                            <div class="animation-header" is-hidden="true">
+                                <p>Current State</p>
+                            </div>
+
+                            <div class="breaker" id="section-one-breaker" is-hidden="true"></div>
+
+                            <div class="animation-header" is-hidden="true">
+                                <p>Desired State</p>
+                            </div>
+
+                            <div class="animated-iac-section" is-hidden="true">
+                                <h1>A</h1>
+                            </div>
+
+                            <div class="animated-iac-section" is-hidden="true">
+                                <h1>B</h1>
+                            </div>
+
+                            <div class="animated-iac-section" is-hidden="true">
+                                <h1>E</h1>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section is-visible="false">
+                <div class="card-wrapper">
+                    <div class="card-header" id="animation-card-header">
+                        <p>Dependency Graph</p>
+                    </div>
+                    <div class="card-animated-area" id="card-animated-area-2">
+                        <div class="section-two">
+
+                            <div class="animated-iac-section">
+                                <h1>A</h1>
+                            </div>
+
+                            <div class="animated-iac-section">
+                                <h1>B</h1>
+                            </div>
+
+                            <div class="animated-iac-section is-desired">
+                                <h1>C</h1>
+                            </div>
+
+                            <div class="animated-iac-section is-desired">
+                                <h1>D</h1>
+                            </div>
+                            <div class="animated-iac-section">
+                                <h1>E</h1>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section is-visible="false">
+                <h1>3</h1>
+            </section>
+            <section is-visible="false">
+                <h1>4</h1>
+            </section>
+            <section is-visible="false">
+                <h1>5</h1>
+            </section>
+
+        </main>
+
+        <div class="dots_container" id="dots_container">
+        </div>
+
+        <script>
+
+            const animated_area_1 = document.getElementById('card-animated-area-1')
+            const animated_elements = document.querySelectorAll('.section-one .animated-iac-section')
+            const hidden_elements = document.querySelectorAll('[is-hidden="true"]')
+            const section_one = document.querySelector('.section-one')
+            const section_two = document.querySelector('.section-two')
+            const animated_card_header = document.getElementById('animation-card-header')
+            const section_one_breaker = document.getElementById('section-one-breaker')
+            var animation_running = false
+
+            animated_area_1.addEventListener('click', () => {
+
+                if (animation_running) {
+                    return;
+                }
+
+                animation_running = true
+
+                var animation = anime.timeline({
+                    easing: 'easeOutExpo',
+                    duration: 5000
+                });
+
+                animation
+                    .add({
+                        targets: animated_elements,
+                        // borderRadius: ['11px', '50%'],
+                        width: ['150px', '75px'],
+                        height: ['50px', '75px'],
+                        easing: 'easeInOutQuad',
+                        duration: 1000
+                    })
+                    .add({
+                        targets: [animated_elements[0], animated_elements[1], animated_elements[4]],
+                        translateY: function (el, i) {
+                            if (i > 1) {
+                                return (section_one.getBoundingClientRect().y + 150 - el.getBoundingClientRect().y)
+                            }
+                            return (section_one.getBoundingClientRect().y + 50 - el.getBoundingClientRect().y)
+                        },
+                        translateX: function (el, i) {
+                            if (i == 2) {
+                                return (section_one.getBoundingClientRect().x + 14 + ((2) * 100) - el.getBoundingClientRect().x)
+                            }
+                            return (section_one.getBoundingClientRect().x + 14 + ((i % 2) * 100) - el.getBoundingClientRect().x)
+                        },
+                        easing: 'easeInOutQuad',
+                        delay: 500,
+                        duration: 1000
+                    })
+                    .add({
+                        targets: [animated_elements[5], animated_elements[6], animated_elements[2], animated_elements[3], animated_elements[7]],
+                        translateY: function (el, i) {
+                            if (i > 1) {
+                                return (section_one.getBoundingClientRect().y + 400 - el.getBoundingClientRect().y)
+                            }
+                            return (section_one.getBoundingClientRect().y + 300 - el.getBoundingClientRect().y)
+                        },
+                        translateX: function (el, i) {
+                            if (i == 4) {
+                                return (section_one.getBoundingClientRect().x + 14 + ((2) * 100) - el.getBoundingClientRect().x)
+                            }
+                            return (section_one.getBoundingClientRect().x + 14 + ((i % 2) * 100) - el.getBoundingClientRect().x)
+                        },
+                        easing: 'easeInOutQuad',
+                        opacity: ["1"],
+                        delay: 5000,
+                        duration: 1000,
+                    })
+                    .add({
+                        targets: ['.animation-header', '.breaker'],
+                        delay: 1000,
+                        duration: 1000,
+                        translateY: -75
+                    })
+                    .add({
+                        targets: hidden_elements,
+                        update: function () {
+                            animated_card_header.innerHTML = `<p>State Comparison</p>`
+                        },
+                        opacity: ["1"]
+                    })
+            })
+
+        </script>
+
+    </body>
+
+</html>
