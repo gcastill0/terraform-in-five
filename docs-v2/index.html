@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,12 +18,12 @@
         --h3-font-weight: 500;
 
         --primary-color: #394955;
-        --primary-color-alt: #137BAD;
-        --secondary-color: #9DADBC;
-        --accent-color: #DC91B9;
+        --primary-color-alt: #137bad;
+        --secondary-color: #9dadbc;
+        --accent-color: #dc91b9;
         --background-color: #fafafa;
 
-        --default-border: var(--secondary-color) dotted 1px;
+        --default-border: var(--secondary-color) dotted 0px;
       }
 
       @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;600;700&display=swap");
@@ -37,6 +38,7 @@
         overflow: hidden;
         background-color: var(--background-color);
       }
+
       section {
         display: flex;
         align-items: center;
@@ -44,16 +46,19 @@
         aspect-ratio: 16/9;
         /* background-color: lightcyan; */
       }
+
       .card {
         border: var(--default-border);
         border-radius: 10px;
       }
+
       .explainer,
       .interactive {
         height: calc(var(--max-height) - 100px);
         width: 50%;
         border: var(--default-border);
       }
+
       .card-title,
       .card-subtitle,
       .card-command {
@@ -63,18 +68,45 @@
         display: flex;
         align-items: center;
       }
+
       .card-title {
         color: var(--primary-color);
         font-size: var(--h1-font-size);
         height: calc(var(--h1-font-size) * 1.5);
         font-weight: var(--h1-font-weight);
+
+        --splash-delay: 2;
+        opacity: 0;
+        animation: fadeInUp ease forwards;
+        animation-duration: calc(var(--splash-delay) * 500ms);
+        animation-delay: calc(var(--splash-delay) * 200ms);
       }
+
       .card-subtitle {
         color: var(--primary-color);
         font-size: var(--h2-font-size);
         height: calc(var(--h2-font-size) * 3);
         font-weight: var(--h2-font-weight);
+
+        --splash-delay: 4;
+        opacity: 0;
+        animation: fadeInUp ease forwards;
+        animation-duration: calc(var(--splash-delay) * 500ms);
+        animation-delay: calc(var(--splash-delay) * 200ms);
       }
+
+      .card-bullet:nth-child(1) {
+        --splash-delay: 6;
+      }
+
+      .card-bullet:nth-child(2) {
+        --splash-delay: 8;
+      }
+
+      .card-bullet:nth-child(3) {
+        --splash-delay: 10;
+      }
+
       .card-bullet {
         color: var(--primary-color);
         line-height: 2.5rem;
@@ -83,38 +115,77 @@
         font-weight: var(--h3-font-weight);
         border: var(--default-border);
         border-radius: 10px;
+
+        opacity: 0;
+        animation: fadeInUp ease forwards;
+        animation-duration: calc(var(--splash-delay) * 500ms);
+        animation-delay: calc(var(--splash-delay) * 200ms);
       }
+
       .interactive {
         display: flex;
         align-items: center;
         justify-content: center;
+
+        --splash-delay: 10;
+        opacity: 0;
+        animation: fade-in ease forwards;
+        animation-duration: calc(var(--splash-delay) * 200ms);
+        animation-delay: calc(var(--splash-delay) * 200ms);
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(30%);
+        }
+
+        30%,
+        50%,
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fade-in {
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
       }
     </style>
   </head>
+
   <body>
     <section>
       <div class="card explainer">
         <div class="card-title">Lorem ipsum</div>
-        <div class="card-subtitle">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</div>
+        <div class="card-subtitle">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+        </div>
         <div class="card-bullets">
-        <ul>
-          <li class="card-bullet">
-            Card Bullet 1, Lorem ipsum, dolor sit amet consectetur adipisicing
-            elit. Consectetur modi nemo esse mollitia laboriosam!
-          </li>
-          <li class="card-bullet">
-            Card Bullet 2, Nobis commodi esse illo aliquid eveniet quae fuga
-            enim nostrum sequi facilis quam, porro sed assumenda.
-          </li>
-        </ul>
+          <ul>
+            <li class="card-bullet" style="">
+              Card Bullet 1, Lorem ipsum, dolor sit amet consectetur adipisicing
+              elit. Consectetur modi nemo esse mollitia laboriosam!
+            </li>
+            <li class="card-bullet">
+              Card Bullet 2, Nobis commodi esse illo aliquid eveniet quae fuga
+              enim nostrum sequi facilis quam, porro sed assumenda.
+            </li>
+            </ul>
         </div>
       </div>
-
       <div class="card interactive">
         <div class="card-image">
-          <img src="image-500-500.svg" alt="">
+          <img src="image-500-500.svg" alt="" />
         </div>
       </div>
     </section>
   </body>
+
 </html>
