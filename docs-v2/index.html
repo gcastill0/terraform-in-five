@@ -123,9 +123,15 @@
       }
 
       .interactive {
+        max-width: 500px;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-wrap: wrap;
+
+        background-color: var(--background-color);
+        background-image: url(background.svg);
+        box-shadow: inset 0 0 20px 20px var(--background-color);
 
         --splash-delay: 10;
         opacity: 0;
@@ -158,6 +164,9 @@
         }
       }
     </style>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src=https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js></script>
+
   </head>
 
   <body>
@@ -181,11 +190,24 @@
         </div>
       </div>
       <div class="card interactive">
-        <div class="card-image">
-          <img src="image-500-500.svg" alt="" />
-        </div>
+        <!-- <div class="card-image"> -->
+        <lottie-player id="firstlottie" src="2.json" background="transparent" speed="1" style="width: 500px; height: 500px;">
+        </lottie-player>
       </div>
     </section>
+<script>
+  LottieInteractivity.create({
+    player: "#firstlottie",
+    mode: "cursor",
+    actions: [
+      {
+        type: "hover",
+        forceFlag: false
+      }
+    ]
+  });
+</script>
+
   </body>
 
 </html>
