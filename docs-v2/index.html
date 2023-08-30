@@ -132,7 +132,7 @@
         flex-wrap: wrap;
 
         background-color: var(--background-color);
-        background-image: url(background.svg);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='50'%3E%3Cpath fill='none' fill-rule='evenodd' stroke='%23137bad' stroke-dasharray='2,2' stroke-width='.15' d='M0 25 50 0l50 25-50 25L0 25Z'/%3E%3C/svg%3E");
         box-shadow: inset 0 0 10px 10px var(--background-color);
 
         --splash-delay: 10;
@@ -167,7 +167,7 @@
       }
     </style>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <script src=https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js></script>
+    <!-- <script src=https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js></script> -->
 
   </head>
 
@@ -193,12 +193,13 @@
       </div>
       <div class="card interactive">
         <div class="card-image">
-          <lottie-player id="firstlottie" src="2.json" background="transparent" speed="1" style="width: 500px; height: 500px;">
+          <lottie-player id="firstlottie" src="2.json" background=“Transparent” speed="0.25" style="width: 500px; height: 500px"
+            direction="1" mode="bounce" loop autoplay>
           </lottie-player>
         </div>
       </div>
     </section>
-    <script>
+    <!-- <script>
       LottieInteractivity.create({
         player: "#firstlottie",
         mode: "cursor",
@@ -209,7 +210,7 @@
           }
         ]
       });
-    </script>
+    </script> -->
 
   </body>
 
