@@ -4,214 +4,246 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Terraform in Five</title>
+    <title>Hello</title>
+    <script src="splash-loader.js"></script>
+
     <style>
-      :root {
-        --max-height: 700px;
-        --min-width: calc(var(--max-height) / 2);
-        --h1-font-size: 64px;
-        --h2-font-size: 36px;
-        --h3-font-size: 24px;
-
-        --h1-font-weight: 700;
-        --h2-font-weight: 600;
-        --h3-font-weight: 500;
-
-        --primary-color: #394955;
-        --primary-color-alt: #137bad;
-        --secondary-color: #9dadbc;
-        --accent-color: #dc91b9;
-        --background-color: #fafafa;
-
-        --default-border: var(--secondary-color) dotted 0px;
-      }
-
-      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;600;700&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap");
-
       body {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        font-family: "Roboto", sans-serif;
-        overflow: hidden;
-        background-color: var(--background-color);
-      }
-
-      section {
-        display: flex;
-        align-items: center;
-        height: var(--max-height);
-        aspect-ratio: 16/9;
-        /* background-color: lightcyan; */
-      }
-
-      .card {
-        border: var(--default-border);
-        border-radius: 10px;
-      }
-
-      .explainer,
-      .interactive {
-        height: calc(var(--max-height) - 100px);
-        width: 50%;
-        border: var(--default-border);
-      }
-
-      .card-title,
-      .card-subtitle,
-      .card-command {
-        margin: 25px 50px;
-        border: var(--default-border);
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-      }
-
-      .card-title {
-        color: var(--primary-color);
-        font-size: var(--h1-font-size);
-        height: calc(var(--h1-font-size) * 1.5);
-        font-weight: var(--h1-font-weight);
-
-        --splash-delay: 2;
-        opacity: 0;
-        animation: fadeInUp ease forwards;
-        animation-duration: calc(var(--splash-delay) * 500ms);
-        animation-delay: calc(var(--splash-delay) * 200ms);
-      }
-
-      .card-subtitle {
-        color: var(--primary-color);
-        font-size: var(--h2-font-size);
-        height: calc(var(--h2-font-size) * 3);
-        font-weight: var(--h2-font-weight);
-
-        --splash-delay: 4;
-        opacity: 0;
-        animation: fadeInUp ease forwards;
-        animation-duration: calc(var(--splash-delay) * 500ms);
-        animation-delay: calc(var(--splash-delay) * 200ms);
-      }
-
-      .card-bullet:nth-child(1) {
-        --splash-delay: 6;
-      }
-
-      .card-bullet:nth-child(2) {
-        --splash-delay: 8;
-      }
-
-      .card-bullet:nth-child(3) {
-        --splash-delay: 10;
-      }
-
-      .card-bullet {
-        color: var(--primary-color);
-        line-height: 2.5rem;
-        margin: 25px 50px;
-        font-size: var(--h3-font-size);
-        font-weight: var(--h3-font-weight);
-        border: var(--default-border);
-        border-radius: 10px;
-
-        opacity: 0;
-        animation: fadeInUp ease forwards;
-        animation-duration: calc(var(--splash-delay) * 500ms);
-        animation-delay: calc(var(--splash-delay) * 200ms);
-      }
-
-      .interactive {
-        max-width: 600px;
-        max-height: 600px;
-        border-radius: 50%;
-        display: flex;
         align-items: center;
         justify-content: center;
-        flex-wrap: wrap;
+        min-height: 100vh;
+      }
 
-        background-color: var(--background-color);
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='50'%3E%3Cpath fill='none' fill-rule='evenodd' stroke='%23137bad' stroke-dasharray='2,2' stroke-width='.15' d='M0 25 50 0l50 25-50 25L0 25Z'/%3E%3C/svg%3E");
-        box-shadow: inset 0 0 10px 10px var(--background-color);
+      svg * {
+        transform-box: fill-box;
+      }
 
-        --splash-delay: 10;
+      .svg-diagram {
+        display: flex;
+        transition: 0.1s;
+        animation: fadeOut 5s 5s ease-out forwards;
+      }
+
+      .svg-filter {
+        display: none;
+      }
+
+      #right-cheek,
+      #left-cheek {
         opacity: 0;
-        animation: fade-in ease forwards;
-        animation-duration: calc(var(--splash-delay) * 200ms);
-        animation-delay: calc(var(--splash-delay) * 200ms);
+        /* fill: black; */
+        /* transform: rotateY(90deg) translate(233.259815px, 60.167622px); */
+        /* animation: slam-to-right 500ms 5000ms ease-in forwards; */
+        animation: rise-to-middle 500ms 2000ms ease-in forwards;
       }
 
-      @keyframes fadeInUp {
-        0% {
-          opacity: 0;
-          transform: translateY(30%);
-        }
+      /* #left-cheek { */
+      /* fill: black; */
+      /* opacity: 0; */
+      /* animation: swing-to-left 500ms 3900ms ease-in forwards; */
+      /* } */
 
-        30%,
-        50%,
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      #top-head {
+        /* fill: black; */
+        opacity: 0;
+        transform: rotateX(90deg);
+
+        /* transform: rotateX(90deg) translate(104px, 0px); */
+        animation: rise-to-middle 500ms 1000ms ease-in forwards;
       }
 
-      @keyframes fade-in {
-        0% {
+      #bottom-mouth {
+        /* fill: black; */
+        opacity: 0;
+        /* transform: rotateX(90deg) translate(104px, 0px); */
+        animation: rise-to-middle 500ms 1500ms ease-in forwards;
+      }
+
+      /* #left_v g,
+      #right_v g {
+        opacity: 0;
+        animation:
+          fadeIn 1s calc(var(--order) * 75ms) ease-in forwards,
+          fadeOut 2s 5s ease-out forwards;
+      }
+
+
+      #middle_h g {
+        opacity: 0;
+        animation:
+          fadeIn 1s calc(var(--order) * 75ms) ease-in forwards,
+          fadeOut 2s 5s ease-out forwards;
+      }
+
+      #contour g {
+        opacity: 0;
+        animation:
+          fadeIn 2s calc(var(--order) * 150ms) ease-in forwards,
+          fadeOut 2s 5s ease-out forwards;
+      } */
+
+      @keyFrames fadeIn {
+        20% {
           opacity: 0;
         }
 
+        50% {
+          opacity: 0.75;
+        }
+
         100% {
-          opacity: 1;
+          opacity: 1.0;
+        }
+
+      }
+
+      @keyFrames fadeOut {
+        0% {
+          filter: url(#fire);
+        }
+
+        20% {
+          opacity: 0.5;
+          filter: url(#fire);
+          transform: scale(1);
+        }
+
+        75% {
+          opacity: 0.1;
+          filter: url(#fire);
+          transform: scale(2);
+        }
+
+        100% {
+          opacity: 0.0;
+          filter: url(#fire);
+          transform: scale(3);
+        }
+
+      }
+
+      @keyframes swing-to-left {
+        0% {
+          opacity: 0.1;
+        }
+
+        50% {
+          opacity: 0.5;
+        }
+
+        100% {
+          opacity: 1.0;
         }
       }
+
+      @keyframes rise-to-middle {
+        0% {
+          opacity: 0.1;
+          transform: rotateX(90deg);
+          /* transform: rotateX(90deg) translate(104px, 0px); */
+        }
+
+        10% {
+          opacity: 0.2;
+          transform: rotateX(80deg);
+
+          /* transform: rotateX(80deg) translate(104px, 0px); */
+        }
+
+        20% {
+          opacity: 0.3;
+          transform: rotateX(70deg);
+
+          /* transform: rotateX(70deg) translate(104px, 0px); */
+        }
+
+        30% {
+          opacity: 0.4;
+          transform: rotateX(60deg);
+          /* transform: rotateX(60deg) translate(104px, 0px); */
+        }
+
+        40% {
+          opacity: 0.5;
+          transform: rotateX(40deg);
+
+          /* transform: rotateX(40deg) translate(104px, 0px); */
+        }
+
+        50% {
+          opacity: 0.5;
+          transform: rotateX(50deg);
+          /* transform: rotateX(50deg) translate(104px, 0px); */
+        }
+
+        100% {
+          opacity: 1;
+          transform: rotateX(0deg);
+          /* transform: rotateX(0deg) translate(104px, 0px); */
+        }
+      }
+
+      @keyframes scale-to-middle {
+        0% {
+          opacity: 0.1;
+          transform: rotateY(-90deg);
+          /* transform: scale(3.5) translate(104px, 0px); */
+        }
+
+        10% {
+          opacity: 0.2;
+          transform: rotateY(-70deg);
+          /* transform: scale(3.0) translate(104px, 0px); */
+        }
+
+        20% {
+          opacity: 0.3;
+          transform: rotateY(-50deg);
+          /* transform: scale(2.5) translate(104px, 0px); */
+        }
+
+        30% {
+          opacity: 0.4;
+          transform: rotateY(-30deg);
+          /* transform: scale(2.0) translate(104px, 0px); */
+        }
+
+        40% {
+          opacity: 0.5;
+          transform: rotateY(-20deg);
+          /* transform: scale(1.5) translate(104px, 0px); */
+        }
+
+        50% {
+          opacity: 0.75;
+          transform: rotateY(-10deg);
+          /* transform: scale(1.3) translate(104px, 0px); */
+        }
+
+        100% {
+          opacity: 1;
+          transform: rotateY(0deg);
+          /* transform: scale(1) translate(104px, 0px); */
+        }
+      }
+
     </style>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <!-- <script src=https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js></script> -->
 
   </head>
 
   <body>
-    <section>
-      <div class="card explainer">
-        <div class="card-title">Lorem ipsum</div>
-        <div class="card-subtitle">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-        </div>
-        <div class="card-bullets">
-          <ul>
-            <li class="card-bullet" style="">
-              Card Bullet 1, Lorem ipsum, dolor sit amet consectetur adipisicing
-              elit. Consectetur modi nemo esse mollitia laboriosam!
-            </li>
-            <li class="card-bullet">
-              Card Bullet 2, Nobis commodi esse illo aliquid eveniet quae fuga
-              enim nostrum sequi facilis quam, porro sed assumenda.
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="card interactive">
-        <div class="card-image">
-          <lottie-player id="firstlottie" src="2.json" background=“Transparent” speed="0.25" style="width: 500px; height: 500px"
-            direction="1" mode="bounce" loop autoplay>
-          </lottie-player>
-        </div>
-      </div>
-    </section>
-    <!-- <script>
-      LottieInteractivity.create({
-        player: "#firstlottie",
-        mode: "cursor",
-        actions: [
-          {
-            type: "hover",
-            forceFlag: false
-          }
-        ]
-      });
-    </script> -->
-
+    <div class="svg-diagram" id="svg-diagram"></div>
+    <div class="svg-filter">
+      <svg>
+        <filter id="fire">
+          <feTurbulence type="turbulence" baseFrequency="0.009" numOctaves="5" seed="3.1416">
+            <animate attributeName="baseFrequency" dur="60s" values="0.02;0.005;0.02;0.0" repeatCount="indefinite" />
+          </feTurbulence>
+          <feDisplacementMap in="SourceGraphic" scale="30" />
+        </filter>
+      </svg>
+    </div>
   </body>
 
 </html>
